@@ -18,9 +18,10 @@ A simple Retrieval-Augmented Generation (RAG) API for asking questions about upl
     - Ask questions.
 
 ## API Documentation
-    - ('/') -> returns index.html
-    - ('/query') -> returns query.html
-    - ('/api/query') -> makes a POST request to the backend with user's questions and gets the response in return
+    1. ('/') -> returns index.html
+    2. ('/query') -> returns query.html
+    3. ('/api/query') -> makes a POST request to the backend with user's questions and 
+                        gets the response in return
 
 ## Screenshots
 ### Index page
