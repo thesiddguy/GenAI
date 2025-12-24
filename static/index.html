@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenAI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff 0%, #d4f7ff 100%);
+    }
+    
+    .container {
+      background: white;
+      padding: 50px 60px;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 500px;
+      border: 1px solid gray;
+      width: 90%;
+    }
+    
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    
+    .file-input-wrapper {
+      position: relative;
+      margin: 30px 0;
+    }
+    
+    input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+    }
+    
+    .file-input-label {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #f0f0f0;
+      border: 2px dashed #999;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    
+    .file-input-label:hover {
+      background: #e8e8e8;
+      border-color: #667eea;
+    }
+    
+    .file-count {
+      margin-top: 15px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    button {
+      padding: 15px 40px;
+      background: #17ad59;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 20px;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Upload Documents</h2>
+  <div class="file-input-wrapper">
+    <input type="file" id="files" multiple />
+    <label for="files" class="file-input-label">
+      Click to select files 
+    </label>
+    <div class="file-count" id="fileCount">No files selected</div>
+  </div>
+  <button onclick="upload()" id="uploadBtn">Upload Files</button>
+</div>
+
+<script>
+const fileInput = document.getElementById("files");
+const fileCount = document.getElementById("fileCount");
+const uploadBtn = document.getElementById("uploadBtn");
+
+fileInput.addEventListener("change", () => {
+  const count = fileInput.files.length;
+  if (count === 0) {
+    fileCount.textContent = "No files selected";
+  } else if (count === 1) {
+    fileCount.textContent = `1 file selected: ${fileInput.files[0].name}`;
+  } else {
+    fileCount.textContent = `${count} files selected`;
+  }
+});
+
+async function upload() {
+  const files = fileInput.files;
+  if (!files.length) {
+    alert("Please select at least one file");
+    return;
+  }
+
+  uploadBtn.disabled = true;
+  uploadBtn.textContent = "Uploading...";
+
+  const formData = new FormData();
+  for (let f of files) {
+    formData.append("files", f);
+  }
+
+  try {
+    const res = await fetch("/upload", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+    localStorage.setItem("file_ids", JSON.stringify(data.file_ids));
+    localStorage.setItem("file_info", JSON.stringify(data.files));
+    
+    // Redirect to query page
+    window.location.href = "/query";
+  } catch (error) {
+    alert("Upload failed: " + error.message);
+    uploadBtn.disabled = false;
+    uploadBtn.textContent = "Upload Files";
+  }
+}
+</script>
+
+</body>
+</html>
