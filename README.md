@@ -8,10 +8,10 @@ A simple Retrieval-Augmented Generation (RAG) API for asking questions about upl
 - Get answers with exact source and context
 
 ## Installation
-  pip install -r requirements.txt
+    pip install -r requirements.txt
 
 ## 🚀 Quick Start/Run
-  For development(locally): fastapi dev main.py
+    For development(locally): fastapi dev main.py
 
 ## How to use it?
     - Upload all the files at once at the very beginning.
@@ -23,7 +23,9 @@ A simple Retrieval-Augmented Generation (RAG) API for asking questions about upl
     - ('/api/query') -> makes a POST request to the backend with user's questions and gets the response in return
 
 ## Screenshots
+### Index page
 ![Home](Screenshots/home.png)
+### Query page
 ![Query](Screenshots/query.png)
 
 ## Cons
