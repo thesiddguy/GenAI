@@ -24,8 +24,8 @@ A simple Retrieval-Augmented Generation (RAG) API for asking questions about upl
                         gets the response in return
 
 ## Sample Folders & Files
-    Files directory contains the sample files.
-    The uploads directory stores the uploaded documents.
+1. 'files' directory contains the sample files.
+2. 'uploads' directory stores the uploaded documents.
     
 
 ## Screenshots
